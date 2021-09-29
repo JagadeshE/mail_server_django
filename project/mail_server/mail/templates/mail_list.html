@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1>Contacts</h1>
+<!-- <p>Mail List Page</p> -->
+<div>
+  <a class="btn btn-default" href="{% url 'import' %}">Import</a>
+
+  <a class="btn btn-default" href="{% url 'export' %}">Export</a>
+
+  <!-- <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form> -->
+
+  <form type="get" action="" style="margin: 0">
+    <input type="text" name="search_box"  placeholder="Search..." value='{{ request.GET.search_box }}'>
+    <input type="submit" value='Search'/>
+</form>
+
+</div>
+<table>
+    <tr>
+      <th>ID</th>
+      <th>E-mail</th>
+      <th>Name</th>
+      <th>Date</th>
+    </tr>
+    {% for b in obj %}
+    <tr>
+      <td>{{ b.id }}</td>
+      <td>{{ b.email }}</td>
+      <td>{{ b.name }}</td>
+      <td>{{ b.email_date }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

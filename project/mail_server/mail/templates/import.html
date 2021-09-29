@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1>Import Mail</h1>
+<p>Mail Import Page</p>
+
+<div class="container">
+    <label for="uname"><b>E-Mail ID / Username</b></label>
+    <input type="text" placeholder="Enter Username / Email ID" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+    <button type="submit">Submit</button>
+</div>
+
+<div class="container" style="background-color:#f1f1f1">
+    <a class="btn btn-default" href="{% url 'mail_list' %}">Cancel</a>
+</div>
+
+<form id="data_form" method="POST">
+
+    {% csrf_token %}
+
+    <div>
+        Username:
+    </div>
+    <div>
+        <input type="text" id="registerFullName" name="registerUsername" class="registerTextDetails">
+    </div>
+    <div>
+        Password: 
+    </div>
+    <div>
+        <input type="text" id="registerPass" name="registerPass" class="registerTextDetails">
+    </div>
+
+    <div>
+        <button  id="cancelRegisterButton">Cancel</button>
+        <button type="submit"  id="submitRegistration">Register</button>
+    </div>
+</form>
+{% endblock %}
